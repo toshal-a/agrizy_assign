@@ -96,7 +96,6 @@ class _PurchaseConfirmationScreenState extends State<PurchaseConfirmationScreen>
             top: 0,
             child: Lottie.asset(
                 "assets/confirmation.json",
-                controller: _animationController,
                 frameRate: const FrameRate(60),
             ),
           )

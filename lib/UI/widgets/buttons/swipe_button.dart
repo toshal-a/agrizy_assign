@@ -140,6 +140,7 @@ class _SwipingButtonState extends State<SwipingButton> {
         } else {
           _width = MediaQuery.of(context).size.width;
           widget.onPressed();
+          _width = 40;
         }
       });
   }
