@@ -16,6 +16,12 @@ IconData icon(String value) {
       return Icomoon.keyboard_content;
     case 'google_grey':
       return Icomoon.google_grey;
+    case 'right_arrow':
+      return Icomoon.right_arrow;
+    case 'arrow_back':
+      return Icomoon.arrow_back;
+    case 'tickmark_back':
+      return Icomoon.tickmark_back;
     default:
       return Icons.chevron_left;
   }

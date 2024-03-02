@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 class CustomTextFieldWidget extends StatelessWidget {
   final String labelText;
   final String prefixSymbol;
-  final TextEditingController controller;
+  final TextEditingController controller =  TextEditingController();
 
-  const CustomTextFieldWidget({super.key,
+  CustomTextFieldWidget({super.key,
     required this.labelText,
     required this.prefixSymbol,
-    required this.controller,
   });
 
   @override

@@ -12,6 +12,8 @@ class Icomoon {
 
   static const String _fontFamily = 'icomoon';
 
+  static const IconData tickmark_back = IconData(0xe909, fontFamily: _fontFamily);
+  static const IconData arrow_back = IconData(0xe908, fontFamily: _fontFamily);
   static const IconData filled_copy = IconData(0xe907, fontFamily: _fontFamily);
   static const IconData back_arrow = IconData(0xe900, fontFamily: _fontFamily);
   static const IconData bulb = IconData(0xe901, fontFamily: _fontFamily);
