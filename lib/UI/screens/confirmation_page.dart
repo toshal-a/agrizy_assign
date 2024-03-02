@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tapinvest_assign/UI/widgets/animations/rotation_widget.dart';
 import 'package:tapinvest_assign/UI/widgets/animations/tick_mark_widget.dart';
@@ -31,13 +31,8 @@ class _PurchaseConfirmationScreenState extends State<PurchaseConfirmationScreen>
         setState(() {}); // Trigger rebuild with updated animation value
       });
 
-    Future.delayed(const Duration(seconds: 1), () {
-      // Ensure the widget is still mounted before playing the animation
-      if (mounted) {
-        _animationController.forward();
-      }
-    });
 
+    _animationController.forward();
   }
 
   @override
@@ -46,42 +41,48 @@ class _PurchaseConfirmationScreenState extends State<PurchaseConfirmationScreen>
       body: Stack(
         children: [
           Positioned(
+              child: Container(
+                color: ColorPalette.green700,
+                child: SvgPicture.asset(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  "assets/vector_dot.svg",
+                ),
+              )
+          ),
+          Positioned(
             bottom: 0,
             left: 0,
             right: 0,
             top: 0,
-            child: Container(
-              color: ColorPalette.green700,
-              //alignment: Alignment.,
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 180),
-                  child: ScaleTransition(
-                    scale: _animation,
-                    child: SizedBox(
-                      width: 111,
-                      height: 111,
-                      child: Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF116631),
-                        borderRadius: BorderRadius.circular(15)
-                      ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 0, right: 0, top: 0, bottom: 0,
-                              child: RotationWidget(
-                                child: Icon(
-                                  icon('tickmark_back'),
-                                  color: Colors.white,
-                                  size: 48
-                                ),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 180),
+                child: ScaleTransition(
+                  scale: _animation,
+                  child: SizedBox(
+                    width: 111,
+                    height: 111,
+                    child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF116631),
+                      borderRadius: BorderRadius.circular(15)
+                    ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 0, right: 0, top: 0, bottom: 0,
+                            child: RotationWidget(
+                              child: Icon(
+                                icon('tickmark_back'),
+                                color: Colors.white,
+                                size: 48
                               ),
                             ),
-                            const TickMarkAnimationWidget()
-                          ],
-                        ),
+                          ),
+                          const TickMarkAnimationWidget()
+                        ],
                       ),
                     ),
                   ),
@@ -95,6 +96,8 @@ class _PurchaseConfirmationScreenState extends State<PurchaseConfirmationScreen>
             right: 0,
             top: 0,
             child: Lottie.asset(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
                 "assets/confirmation.json",
                 frameRate: const FrameRate(60),
             ),
